@@ -1,11 +1,11 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
 
-  target: 'static',
-  ssr: false,
-  generate: {
-    fallback: true,
-  },
+  // target: 'static',
+  // ssr: false,
+  // generate: {
+  //   fallback: true,
+  // },
 
   head: {
     title: 'mongo-ecommerce',
