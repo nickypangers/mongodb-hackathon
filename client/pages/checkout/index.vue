@@ -3,7 +3,7 @@
     <div class="md:col-span-3 order-2 md:order-1 p-3">
       <nuxt-link to="/cart">Edit Cart</nuxt-link>
       <p class="font-bold text-lg">Checkout</p>
-      <div v-if="errors.length > 0">
+      <div v-if="errors.length > 0" class="border p-2 border-red-400">
         <p>Please fix the following errors:</p>
         <ul>
           <li v-for="(error, index) in errors" :key="`error-${index}`">
@@ -41,6 +41,11 @@ import global from '~/mixins/global'
 export default {
   name: 'CheckoutIndexPage',
   mixins: [global],
+  head() {
+    return {
+      title: 'Checkout - MongoDB Ecommerce',
+    }
+  },
   data() {
     return {
       customer_name: '',

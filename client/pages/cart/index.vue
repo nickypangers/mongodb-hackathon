@@ -29,6 +29,11 @@ import global from '~/mixins/global'
 export default {
   name: 'CartPage',
   mixins: [global],
+  head() {
+    return {
+      title: 'Cart - MongoDB Ecommerce',
+    }
+  },
   data() {
     return {}
   },

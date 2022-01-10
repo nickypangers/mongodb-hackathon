@@ -9,9 +9,9 @@
     <p><span class="font-bold">Email:</span> {{ order.customer_email }}</p>
     <p class="font-bold">Shopping Bag:</p>
     <order-result-cart-item
-      v-for="item in order.cart"
-      :item="item"
-      :key="item._id"
+      v-for="product in order.cart"
+      :product="product"
+      :key="product._id"
     />
     <p class="mt-3">
       <span class="font-bold">Total:</span> {{ formatPrice(order.total_price) }}

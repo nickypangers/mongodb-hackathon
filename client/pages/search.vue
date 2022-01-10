@@ -77,6 +77,11 @@
 <script>
 export default {
   name: 'SearchPage',
+  head() {
+    return {
+      title: 'Search - MongoDB Ecommerce',
+    }
+  },
   async asyncData({ $axios }) {
     const response = await $axios.$get('/products/categories')
     if (!response.success) {

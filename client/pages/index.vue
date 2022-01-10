@@ -15,6 +15,11 @@
 <script>
 export default {
   name: 'IndexPage',
+  head() {
+    return {
+      title: 'Home - MongoDB Ecommerce',
+    }
+  },
   async asyncData({ store }) {
     await store.dispatch('products/fetchProducts')
   },

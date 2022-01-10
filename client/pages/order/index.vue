@@ -17,7 +17,7 @@
         <p>Cannot find order with order ID: {{ query }}</p>
       </div>
       <div class="grid grid-cols-1 gap-3" v-if="hasOrder">
-        <order-result v-for="order in orders" :order="order" :key="order.id" />
+        <order-result v-for="order in orders" :order="order" :key="order._id" />
       </div>
     </div>
   </div>
@@ -25,6 +25,11 @@
 <script>
 export default {
   name: 'OrderPage',
+  head() {
+    return {
+      title: 'Order - MongoDB Ecommerce',
+    }
+  },
   data() {
     return {
       query: '',

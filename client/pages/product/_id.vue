@@ -46,6 +46,11 @@ export default {
       timer: null,
     }
   },
+  head() {
+    return {
+      title: `${this.product.name} - MongoDB Ecommerce`,
+    }
+  },
   computed: {
     hasStock() {
       return this.product.stock > 0
