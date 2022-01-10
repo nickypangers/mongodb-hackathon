@@ -2,12 +2,12 @@
   <div
     ref="cartSidebar"
     id="cartSidebar"
-    class="fixed top-0 bottom-0 right-0 border z-10 bg-gray-200 overflow-x-hidden"
+    class="fixed top-0 bottom-0 right-0 rounded-tl-lg rounded-bl-lg border z-10 bg-gray-200 overflow-x-hidden"
   >
     <div class="w-full h-full relative">
       <div
         ref="cartHeader"
-        class="sticky top-0 inset-x-0 flex justify-between items-center p-3 bg-red-300"
+        class="sticky top-0 inset-x-0 flex justify-between items-center p-3 bg-secondary text-white"
       >
         <button @click="closeCartSidebar">
           <font-awesome-icon :icon="['fas', 'times']" />
@@ -24,7 +24,7 @@
       </div>
       <div
         ref="cartFooter"
-        class="sticky bottom-0 inset-x-0 p-3 bg-red-300 flex justify-between items-center"
+        class="sticky bottom-0 inset-x-0 p-3 bg-secondary text-white flex justify-between items-center"
       >
         <p class="font-bold">Total: {{ formatPrice(cartTotal) }}</p>
         <nuxt-link to="/cart">

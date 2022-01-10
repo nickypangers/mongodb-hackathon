@@ -7,13 +7,13 @@
     </p>
     <p><span class="font-bold">Name:</span> {{ order.customer_name }}</p>
     <p><span class="font-bold">Email:</span> {{ order.customer_email }}</p>
-    <p>Shopping Bag:</p>
+    <p class="font-bold">Shopping Bag:</p>
     <order-result-cart-item
       v-for="item in order.cart"
       :item="item"
       :key="item._id"
     />
-    <p>
+    <p class="mt-3">
       <span class="font-bold">Total:</span> {{ formatPrice(order.total_price) }}
     </p>
   </div>

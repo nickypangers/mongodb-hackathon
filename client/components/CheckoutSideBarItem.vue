@@ -2,7 +2,7 @@
   <div class="flex justify-between items-center">
     <div class="flex items-center">
       <div class="w-16">
-        <img src="/product/image.png" alt="product" />
+        <img :src="getProductImage(product.category)" alt="product" />
       </div>
       <div class="ml-3">
         <p>{{ product.name }}</p>

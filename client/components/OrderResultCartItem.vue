@@ -1,11 +1,11 @@
 <template>
   <div class="flex items-center">
     <div class="w-28">
-      <img src="/product/image.png" alt="product" />
+      <img :src="getProductImage(product.category)" alt="product" />
     </div>
     <div class="ml-3">
-      <h3>{{ item.name }}</h3>
-      <p class="text-sm">Qty: {{ item.quantity }}</p>
+      <h3>{{ product.name }}</h3>
+      <p class="text-sm">Qty: {{ product.quantity }}</p>
       <p>Subtotal: {{ formatPrice(subTotal) }}</p>
     </div>
   </div>
@@ -15,17 +15,17 @@ import global from '~/mixins/global'
 export default {
   name: 'OrderResultCartItem',
   props: {
-    item: {
+    product: {
       type: Object,
     },
   },
   mixins: [global],
   computed: {
     subTotal() {
-      if (this.item.discountedPrice > 0) {
-        return this.item.discountedPrice * this.item.quantity
+      if (this.product.discountedPrice > 0) {
+        return this.product.discountedPrice * this.product.quantity
       } else {
-        return this.item.price * this.item.quantity
+        return this.product.price * this.product.quantity
       }
     },
   },

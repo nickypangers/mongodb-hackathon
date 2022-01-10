@@ -2,7 +2,7 @@
   <div>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
       <div>
-        <div class="h-auto bg-white p-3 rounded-lg">
+        <div class="h-auto bg-white p-3 rounded-lg shadow-lg">
           <p class="font-semibold text-lg">
             <span><font-awesome-icon :icon="['fas', 'filter']" /></span>
             Refine your search
@@ -47,12 +47,13 @@
           <div class="mt-2">
             <label for="category" class="w-min">Category:</label>
             <select name="cateogry" id="category" v-model="query.category">
+              <option value="">All</option>
               <option
                 v-for="category in categoryList"
-                :value="category.value"
-                :key="`category-${category.name}`"
+                :value="category"
+                :key="`category-${category}`"
               >
-                {{ category.name }}
+                {{ category }}
               </option>
             </select>
           </div>
@@ -76,6 +77,18 @@
 <script>
 export default {
   name: 'SearchPage',
+  async asyncData({ $axios }) {
+    const response = await $axios.$get('/products/categories')
+    if (!response.success) {
+      console.log(data.message)
+      return {
+        categoryList: [],
+      }
+    }
+    return {
+      categoryList: response.data,
+    }
+  },
   data() {
     return {
       query: {
@@ -90,20 +103,6 @@ export default {
       results: [],
       timer: null,
       isLoading: false,
-      categoryList: [
-        {
-          name: 'All',
-          value: '',
-        },
-        {
-          name: 'Shirt',
-          value: 'Shirt',
-        },
-        {
-          name: 'Shoes',
-          value: 'Shoes',
-        },
-      ],
     }
   },
   computed: {
@@ -139,7 +138,6 @@ export default {
     },
     query: {
       handler: function (val) {
-        console.log(val)
         clearTimeout(this.timer)
         if (!this.hasQuery) {
           return

@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-col-1 md:grid-cols-2 gap-3">
     <div class="py-3">
-      <img src="/product/image.png" alt="product" />
+      <img :src="getProductImage(product.category)" alt="product" />
     </div>
     <div>
       <h2 class="mb-2">{{ product.name }}</h2>
@@ -19,12 +19,8 @@
         <p class="underline">Description</p>
         <p>{{ product.description }}</p>
       </div>
-      <button
-        class="add-to-cart"
-        @click="addToCart(product)"
-        :disabled="!hasStock"
-      >
-        Add To Cart
+      <button class="add-to-cart" @click="atcClicked()" :disabled="!hasStock">
+        {{ atcText }}
       </button>
     </div>
   </div>
@@ -44,12 +40,31 @@ export default {
       product: response.data,
     }
   },
+  data() {
+    return {
+      isClicked: false,
+      timer: null,
+    }
+  },
   computed: {
     hasStock() {
       return this.product.stock > 0
     },
     items() {
       return this.$store.state.cart.items
+    },
+    atcText() {
+      return this.isClicked ? 'Added To Cart' : 'Add To Cart'
+    },
+  },
+  methods: {
+    atcClicked() {
+      clearTimeout(this.timer)
+      this.isClicked = true
+      this.addToCart(this.product)
+      this.timer = setTimeout(() => {
+        this.isClicked = false
+      }, 1000)
     },
   },
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+  <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
     <div class="md:col-span-3 order-2 md:order-1 p-3">
       <nuxt-link to="/cart">Edit Cart</nuxt-link>
       <p class="font-bold text-lg">Checkout</p>
@@ -31,7 +31,7 @@
         <input type="submit" value="Buy Now" />
       </form>
     </div>
-    <div class="order-1 md:order-2">
+    <div class="md:col-span-2 order-1 md:order-2">
       <checkout-side-bar />
     </div>
   </div>

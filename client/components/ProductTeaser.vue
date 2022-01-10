@@ -4,7 +4,7 @@
     @click="goToProduct"
   >
     <div>
-      <img src="/product/image.png" alt="product" />
+      <img :src="getProductImage(product.category)" alt="product" />
     </div>
     <div>
       <p class="text-xl truncate">
@@ -27,9 +27,9 @@
       <button
         v-if="hasStock"
         class="add-to-cart mt-2"
-        @click.stop="addToCart(product)"
+        @click.stop="atcClicked()"
       >
-        Add To Cart
+        {{ atcText }}
       </button>
     </div>
   </div>
@@ -45,14 +45,31 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      isClicked: false,
+      timer: null,
+    }
+  },
   computed: {
     hasStock() {
       return this.product.stock > 0
+    },
+    atcText() {
+      return this.isClicked ? 'Added To Cart' : 'Add To Cart'
     },
   },
   methods: {
     goToProduct() {
       this.$router.push(`/product/${this.product._id}`)
+    },
+    atcClicked() {
+      clearTimeout(this.timer)
+      this.isClicked = true
+      this.addToCart(this.product)
+      this.timer = setTimeout(() => {
+        this.isClicked = false
+      }, 1000)
     },
   },
 }

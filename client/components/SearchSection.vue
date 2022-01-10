@@ -30,6 +30,7 @@ export default {
       query: '',
       isFocus: false,
       results: [],
+      timer: null,
     }
   },
   computed: {
@@ -43,7 +44,8 @@ export default {
         this.results = []
         return
       }
-      setTimeout(async () => {
+      clearTimeout(this.timer)
+      this.timer = setTimeout(async () => {
         this.results = await this.getResults()
       }, 500)
     },

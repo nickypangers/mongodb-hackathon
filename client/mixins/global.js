@@ -18,5 +18,14 @@ export default {
           return 'bg-gray-300'
       }
     },
+    getProductImage(category) {
+      const prefix = '/product/'
+      switch (category.toLowerCase()) {
+        case 'shoes':
+          return prefix + 'shoes.png'
+        case 'shirt':
+          return prefix + 'shirt.png'
+      }
+    },
   },
 }

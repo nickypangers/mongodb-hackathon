@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white p-3">
+  <div class="rounded-xl bg-white p-3 shadow-lg">
     <p>Cart Overview</p>
     <div class="grid grid-cols-1 gap-3 my-3">
       <checkout-side-bar-item

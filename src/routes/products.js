@@ -29,6 +29,16 @@ router.post("/create", async (req, res) => {
   }
 });
 
+router.get("/categories", async (req, res) => {
+  console.log("category");
+  try {
+    const data = await Product.distinct("category");
+    return res.json({ success: true, data });
+  } catch (err) {
+    return res.json({ success: false, message: err.message });
+  }
+});
+
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -46,7 +56,7 @@ router.delete("/:id", async (req, res) => {
     return res.json({ success: true, data: data });
   } catch (err) {
     return res.json({ success: false, message: err.message });
-  } 
+  }
 });
 
 router.post("/search/refine", async (req, res) => {

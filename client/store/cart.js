@@ -43,12 +43,14 @@ export const mutations = {
     }
   },
   pushItemToCart(state, product) {
+    const { discountedPrice, price, name, category } = product
     state.items.push({
       _id: product._id,
       quantity: 1,
-      discountedPrice: product.discountedPrice,
-      price: product.price,
-      name: product.name,
+      discountedPrice,
+      price,
+      name,
+      category,
     })
   },
   removeItemFromCart(state, item) {
@@ -67,7 +69,9 @@ export const actions = {
     const cartItem = state.items.find((item) => item._id === product._id)
     if (!cartItem) {
       commit('pushItemToCart', product)
-    } else [commit('incrementItemQuantity', { id: product._id })]
+    } else {
+      commit('incrementItemQuantity', { id: product._id })
+    }
   },
   toggleSidebar({ commit }) {
     commit('setShowSidebar', !this.getters.showSidebar)

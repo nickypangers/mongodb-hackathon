@@ -3,7 +3,7 @@
     <nuxt-link :to="`/product/${product._id}`">
       <div class="flex pb-1 md:pb-0 text-left">
         <div class="w-28">
-          <img src="/product/image.png" alt="product" />
+          <img :src="getProductImage(product.category)" alt="product" />
         </div>
         <div class="ml-3">
           <p class="text-xl">{{ product.name }}</p>
