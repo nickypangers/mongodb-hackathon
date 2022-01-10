@@ -18,11 +18,7 @@ export default {
   css: ['~/assets/css/fonts.css', '~/assets/css/styles.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '~/plugins/route',
-    '~/plugins/toast-notification',
-    '~/plugins/axios',
-  ],
+  plugins: ['~/plugins/route', '~/plugins/toast-notification'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -66,12 +62,14 @@ export default {
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'https://mongodb-ecommerce.herokuapp.com', // Used as fallback if no runtime config is provided
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
   env: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3030',
+    baseURL: 'https://mongodb-ecommerce.herokuapp.com/',
   },
 }
