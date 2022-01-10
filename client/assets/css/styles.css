@@ -1,0 +1,21 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  font-family: 'Roboto', sans-serif;
+  @apply bg-primary text-secondary;
+}
+
+h2 {
+  @apply font-bold text-3xl;
+}
+
+h3 {
+  @apply text-xl;
+}
+
+.add-to-cart {
+  @apply bg-blue-300 rounded-lg p-2 text-white;
+}
