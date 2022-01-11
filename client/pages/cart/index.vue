@@ -18,7 +18,12 @@
       </div>
       <div class="flex md:justify-end mt-3">
         <nuxt-link to="/checkout">
-          <button class="py-2 px-4 rounded-lg bg-blue-200">Checkout</button>
+          <button
+            class="py-2 px-4 rounded-lg bg-blue-200"
+            :disabled="itemCount === 0"
+          >
+            Checkout
+          </button>
         </nuxt-link>
       </div>
     </div>
@@ -50,3 +55,10 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+button {
+  &:disabled {
+    @apply bg-gray-300 cursor-default;
+  }
+}
+</style>

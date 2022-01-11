@@ -28,7 +28,7 @@
             v-model="customer_email"
           />
         </div>
-        <input type="submit" value="Buy Now" />
+        <input type="submit" value="Buy Now" :disabled="items.length === 0" />
       </form>
     </div>
     <div class="md:col-span-2 order-1 md:order-2">
@@ -68,6 +68,11 @@ export default {
       return re.test(email)
     },
     createOrder: async function () {
+      if (this.items.length === 0) {
+        this.errors.push('Your cart is empty')
+        return
+      }
+
       this.errors = []
 
       if (!this.customer_name) {
@@ -124,5 +129,9 @@ input {
 
 a {
   @apply underline;
+}
+
+input[type='submit'] {
+  @apply bg-gray-300 cursor-default;
 }
 </style>
