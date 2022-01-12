@@ -28,7 +28,7 @@
       >
         <p class="font-bold">Total: {{ formatPrice(cartTotal) }}</p>
         <nuxt-link to="/cart">
-          <button class="bg-blue-300 p-2 rounded-lg text-secondary">
+          <button class="hover:bg-blue-300 py-2 px-4 rounded-lg bg-blue-500">
             View Cart
           </button>
         </nuxt-link>

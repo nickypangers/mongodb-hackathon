@@ -2,9 +2,11 @@
   <div>
     <h2 class="mb-4">Your Cart</h2>
     <div v-if="items.length === 0" class="py-6">
-      <p>Your cart is empty.</p>
+      <p class="mb-4">Your cart is empty.</p>
       <nuxt-link to="/">
-        <button class="bg-blue-300 rounded-lg p-2">Continue Shopping</button>
+        <button class="hover:bg-blue-300 rounded-lg p-2 text-white bg-blue-500">
+          Continue Shopping
+        </button>
       </nuxt-link>
     </div>
     <div class="divide-y" v-if="items.length > 0">
@@ -19,7 +21,7 @@
       <div class="flex md:justify-end mt-3">
         <nuxt-link to="/checkout">
           <button
-            class="py-2 px-4 rounded-lg bg-blue-200"
+            class="py-2 px-4 rounded-lg hover:bg-blue-300 bg-blue-500 text-white"
             :disabled="itemCount === 0"
           >
             Checkout

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full border border-2 border-gray-200 rounded-lg p-3 text-left cursor-pointer"
+    class="w-full border border-2 border-gray-200 hover:border-black rounded-lg p-3 text-left cursor-pointer"
     @click="goToProduct"
   >
     <div>

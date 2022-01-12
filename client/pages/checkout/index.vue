@@ -3,9 +3,9 @@
     <div class="md:col-span-3 order-2 md:order-1 p-3">
       <nuxt-link to="/cart">Edit Cart</nuxt-link>
       <p class="font-bold text-lg">Checkout</p>
-      <div v-if="errors.length > 0" class="border p-2 border-red-400">
+      <div v-if="errors.length > 0" class="border p-2 border-red-400 my-4">
         <p>Please fix the following errors:</p>
-        <ul>
+        <ul class="ml-5 list-disc">
           <li v-for="(error, index) in errors" :key="`error-${index}`">
             {{ error }}
           </li>
@@ -28,7 +28,12 @@
             v-model="customer_email"
           />
         </div>
-        <input type="submit" value="Buy Now" :disabled="items.length === 0" />
+        <input
+          type="submit"
+          value="Buy Now"
+          class="bg-blue-500 hover:bg-blue-300 text-white rounded-lg"
+          :disabled="items.length === 0"
+        />
       </form>
     </div>
     <div class="md:col-span-2 order-1 md:order-2">
@@ -132,6 +137,8 @@ a {
 }
 
 input[type='submit'] {
-  @apply bg-gray-300 cursor-default;
+  &:disabled {
+    @apply bg-gray-300 cursor-default;
+  }
 }
 </style>

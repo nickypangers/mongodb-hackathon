@@ -17,5 +17,5 @@ h3 {
 }
 
 .add-to-cart {
-  @apply bg-blue-300 rounded-lg p-2 text-white;
+  @apply hover:bg-blue-300 rounded-lg p-2 text-white bg-blue-500;
 }
